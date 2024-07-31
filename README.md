@@ -46,7 +46,7 @@
 sudo docker run -d \
 --restart always \
 --hostname rabbitmq-demo.bobpeulen.com \
--p 80:15672 -p 1883:1883 -p 443:15671 \
+-p 8080:15672 -p 5672:5672 \
 -e RABBITMQ_DEFAULT_USER=bobpeulen \
 -e RABBITMQ_DEFAULT_PASS=Blabla1991!! \
 -v /home/opc/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins \
@@ -55,8 +55,10 @@ sudo docker run -d \
 rabbitmq:3-management
 ```
 
-8. 
 
-
+```
+sudo firewall-cmd --add-service=http --permanent
+sudo firewall-cmd --reload
+```
 
    
