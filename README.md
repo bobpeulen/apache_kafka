@@ -24,16 +24,16 @@
   ```
 
 4. RabbitMQ. Create directory. 
-   ```
-   mkdir rabbitmq
-   cd rabbitmq
-   nano enabled_plugins
-   ```
+ ```
+ mkdir rabbitmq
+ cd rabbitmq
+ nano enabled_plugins
+ ```
 5. Add the below to the enabled_pugins file
 
-   ```
-   [rabbitmq_management,rabbitmq_mqtt].
-   ```
+ ```
+ [rabbitmq_management,rabbitmq_mqtt].
+ ```
 
 6. Change permission on file
 ```
