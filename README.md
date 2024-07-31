@@ -5,6 +5,7 @@
 
 1. Create an instance with Oracle Linux 7. Run
 
+see: https://www.svix.com/resources/guides/rabbitmq-docker-setup-guide/
 
   ```
   sudo yum install docker-engine docker-cli
