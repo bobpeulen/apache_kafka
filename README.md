@@ -1,7 +1,7 @@
 # apache_kafka
 
 
-# Install RabbitMQ
+# Run RabbitMQ usind Docker
 
 1. Create an instance with Oracle Linux 7. Run
 
@@ -30,7 +30,7 @@ sudo docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-manage
 
 4. Go to http://[PUBLIC IP]::15672/
 
---------
+-------- END
 
 
 ```
