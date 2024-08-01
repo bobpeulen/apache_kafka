@@ -25,10 +25,66 @@ sudo docker pull rabbitmq:3-management
 
 3. Default user
 ```
-sudo docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+sudo docker run -d --name rabbitmq2 -p 5672:5672 -p 15672:15672 -p 8883:8883 rabbitmq:3-management
 ```
 
 4. Go to http://[PUBLIC IP]::15672/
+
+
+5. Test using CMD.
+curl -i -u guest:guest http://150.136.15.87:15672/api/vhosts
+
+```
+curl -s -u guest:guest -H "Accept: application/json" -H "Content-Type:application/json" -X POST -d'{  ^
+    "vhost": "/", ^
+    "name": "amq.direct", ^
+    "properties": { ^
+        "delivery_mode": 2, ^
+        "headers": {} ^
+    }, ^
+    "routing_key": "kpnthings", ^
+    "delivery_mode": "1", ^
+    "payload":"{'example:'payloadx'}", ^
+    "headers": {}, ^
+    "props": {}, ^
+    "payload_encoding": "string" ^
+}' http://150.136.15.87:15672/api/exchanges/%2F/amq.direct/publish
+
+```
+
+
+```
+curl -XPOST -d'{"properties":{},"routing_key":"kpnthings","payload":"my body","payload_encoding":"string"}' https://guest:guest@150.136.15.87:15672/api/exchanges/vhost/amq.default/publish
+```
+5. Review queues available.
+```
+curl -i -u guest:guest http://150.136.15.87:15672/api/queues
+```
+6. Create new vhost
+```
+curl -i -u guest:guest -H "content-type:application/json" -XPUT http://150.136.15.87:15672/api/vhosts/foo
+```
+
+7. Create an exchange, add binding to queue. Publish.
+```
+curl -i -H "Content-Type:application/json" -X POST -u guest:guest http://150.136.15.87:15672/api/exchanges/foo/amq.direct/publish -d'{"properties":{},"routing_key":"testqueue","payload":"my body","payload_encoding":"string"}'
+```	
+[]
+[]
+[]
+[]
+[]
+
+curl -u guest:guest -i -H "Content-Type:application/json" -X PUT http://150.136.15.87:15672/api///exchanges/kpnthingsexchange/publish -d'{"properties":{},"routing_key":"kpnthings","payload":"my body","payload_encoding":"string"}'
+
+
+curl -s -u guest:guest -H "Content-Type:application/json" -X POST -d'{"vhost": "/",  "name": "amq.direct",   "properties": { "delivery_mode": 2, "headers": {}}, "routing_key": "testqueue", "delivery_mode": "1", "payload":"{'example:'payloadx'}", "headers": {}, "props": {}, "payload_encoding": "string"}' http://150.136.15.87:15672/api/exchanges/foo/amq.direct/publish
+
+
+
+
+
+
 
 -------- END
 
