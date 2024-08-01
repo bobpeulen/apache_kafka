@@ -28,6 +28,10 @@ sudo docker pull rabbitmq:3-management
 sudo docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 ```
 
+4. Go to http://[PUBLIC IP]::15672/
+
+--------
+
 
 ```
 sudo docker run -d \
