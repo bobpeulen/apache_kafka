@@ -76,6 +76,18 @@ sudo openssl req -new -out server.csr -key server.key
 sudo openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 360
 ```
 
+TEST - PW FILE
+sudo docker run -it --name mosquitto_open323 -p 1883:1883 -v $(pwd)/mosquitto:/mosquitto/ eclipse-mosquitto
+
+
+sudo chmod 0700 mosquitto/pwfile
+sudo chown root mosquitto/pwfile
+
+sudo docker exec mosquitto_open4456 mosquitto_passwd -U mosquitto/pwfile
+
+
+
+
 10. Run Docker with conf file. 
 ```
 sudo systemctl restart docker
