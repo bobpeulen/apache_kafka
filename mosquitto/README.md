@@ -104,6 +104,7 @@ sudo docker run -it --name mosquitto_open15239 -p 1883:1883 -p 8883:8883 -v $(pw
 
 - Create instance with CentOS 7 image
 - Follow these steps to update a file for use of yum. https://dev.to/franzwong/fix-cannot-find-a-valid-baseurl-for-repo-in-centos-1h07
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-centos-7
 - Run
 
   ```
