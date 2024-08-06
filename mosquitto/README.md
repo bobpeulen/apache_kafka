@@ -100,5 +100,61 @@ sudo docker run -it --name mosquitto_open15239 -p 1883:1883 -p 8883:8883 -v $(pw
 
 
 
+# Create and run Mosquitto using CentOS 7 Image
+
+- Create instance with CentOS 7 image
+- Follow these steps to update a file for use of yum. https://dev.to/franzwong/fix-cannot-find-a-valid-baseurl-for-repo-in-centos-1h07
+- Run
+
+  ```
+  sudo yum -y install epel-release
+  sudo yum -y install mosquitto
+  sudo systemctl start mosquitto
+  sudo systemctl enable mosquitto
+  ```
+
+- Firewall settings
+  ```
+  sudo firewall-cmd --permanent --add-service=http
+  sudo firewall-cmd --permanent --add-port=1883/tcp
+  sudo firewall-cmd --reload
+  ```
+
+- Test. Open two terminals.
+  ```
+  mosquitto_sub -h localhost -t test
+  mosquitto_pub -h localhost -t test -m "hello world"
+  ```
+
+
+- PW file. Username is in cmnd, password will be prompted and added (Herken....)
+  ```
+  sudo mosquitto_passwd -c /etc/mosquitto/passwd bob
+  ```
+
+- Config file. Remove first, create new
+  ```
+  sudo rm /etc/mosquitto/mosquitto.conf
+  sudo nano /etc/mosquitto/mosquitto.conf
+
+  listener 1883
+  allow_anonymous false
+  password_file /etc/mosquitto/passwd
+  ```
+
+- Restart
+  ```
+  sudo systemctl restart mosquitto
+  ```
+
+- Test with credentials
+  ```
+  mosquitto_sub -h localhost -t test -u "bob" -P "password"
+  mosquitto_pub -h localhost -t "test" -m "hello world" -u "bob" -P "password"
+
+
+
+
+
 
 
