@@ -138,15 +138,20 @@ sudo docker run -it --name mosquitto_open15239 -p 1883:1883 -p 8883:8883 -v $(pw
   ```
   sudo rm /etc/mosquitto/mosquitto.conf
   sudo nano /etc/mosquitto/mosquitto.conf
-
-  listener 1883
+  ```
+- Add the below to the file. Change the domain name to the one you are using. 
+  ```
   allow_anonymous false
   password_file /etc/mosquitto/passwd
-  #require_certificate true
+  listener 8883
+  certfile /etc/letsencrypt/live/mosquitto-demo.cooldemo.org/cert.pem
+  cafile /etc/letsencrypt/live/mosquitto-demo.cooldemo.org/fullchain.pem
+  keyfile /etc/letsencrypt/live/mosquitto-demo.cooldemo.org/privkey.pem
   ```
 
 - Restart
   ```
+  sudo systemctl daemon-reload
   sudo systemctl restart mosquitto
   ```
 
@@ -155,6 +160,11 @@ sudo docker run -it --name mosquitto_open15239 -p 1883:1883 -p 8883:8883 -v $(pw
   mosquitto_sub -h localhost -t test -u "bob" -P "password"
   mosquitto_pub -h localhost -t "test" -m "hello world" -u "bob" -P "password"
 
+- Test with credentials and certificate. 
+  ```
+  mosquitto_pub -h mosquitto-demo.cooldemo.org -t mytopic -m "hello again" -p 8883 --cafile /etc/ssl/certs/ca-bundle.crt -u "bob" -P "password"
+  mosquitto_sub -h mosquitto-demo.cooldemo.org -t mytopic -p 8883 --cafile /etc/ssl/certs/ca-bundle.crt -u "bob" -P "password"
+  ```
 
 # Keys. Public IP should be added to public DNS. 
   ```
