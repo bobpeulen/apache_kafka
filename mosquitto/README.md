@@ -154,8 +154,18 @@ sudo docker run -it --name mosquitto_open15239 -p 1883:1883 -p 8883:8883 -v $(pw
   mosquitto_pub -h localhost -t "test" -m "hello world" -u "bob" -P "password"
 
 
+# Keys. Public IP should be added to public DNS. 
+  ```
+  sudo yum -y install certbot
+  sudo certbot certonly --standalone
+  ```
 
+- Use: mosquitto-demo.cooldemo.org
 
-
+- Create Cron job to create new certificates every day
+```
+sudo EDITOR=nano crontab -e
+15 3 * * * certbot renew --noninteractive --post-hook "systemctl restart mosquitto"
+```
 
 
