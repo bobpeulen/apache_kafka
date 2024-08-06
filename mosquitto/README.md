@@ -118,6 +118,7 @@ sudo docker run -it --name mosquitto_open15239 -p 1883:1883 -p 8883:8883 -v $(pw
   ```
   sudo firewall-cmd --permanent --add-service=http
   sudo firewall-cmd --permanent --add-port=1883/tcp
+  sudo firewall-cmd --permanent --add-port=8883/tcp
   sudo firewall-cmd --reload
   ```
 
