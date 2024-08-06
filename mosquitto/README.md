@@ -140,7 +140,7 @@ sudo docker run -it --name mosquitto_open15239 -p 1883:1883 -p 8883:8883 -v $(pw
   listener 1883
   allow_anonymous false
   password_file /etc/mosquitto/passwd
-  require_certificate false
+  #require_certificate true
   ```
 
 - Restart
