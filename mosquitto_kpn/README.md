@@ -85,15 +85,15 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
 
 
 # Add a connection to KPN IoT hub. Like screenshot.
-  [img_1](./images/1.png)
+  ![img_1](./images/1.png)
 
 # Create OCI Streaming, Kafka Connect Configuration and get streaming credentials to connect, like:
-  [img_2](./images/2.png)
+  ![img_2](./images/2.png)
 
 # Set up Node-RED and create flow from Mosquitto to OCI Streaming
-  [img_2](./images/3.png)
-  [img_2](./images/4.png)
-  [img_2](./images/5.png)
+  ![img_2](./images/3.png)
+  ![img_2](./images/4.png)
+  ![img_2](./images/5.png)
 
 # Create OCI Data Flow
 
