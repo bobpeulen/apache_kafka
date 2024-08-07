@@ -77,7 +77,7 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
 
 
 - Create Cron job to create new certificates every day
-```
-sudo EDITOR=nano crontab -e
-15 3 * * * certbot renew --noninteractive --post-hook "systemctl restart mosquitto"
-```
+  ```
+  sudo EDITOR=nano crontab -e
+  15 3 * * * certbot renew --noninteractive --post-hook "systemctl restart mosquitto"
+  ```
