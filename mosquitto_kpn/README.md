@@ -66,13 +66,13 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
 
 - Test with credentials
   ```
-  mosquitto_sub -h localhost -t test -u "bob" -P "password" -p 8883
-  mosquitto_pub -h localhost -t "test" -m "hello world" -u "bob" -P "password" -p 8883
+  mosquitto_sub -h localhost -t kpnthings -u "bob" -P "password" -p 8883
+  mosquitto_pub -h localhost -t "kpnthings" -m "hello world" -u "bob" -P "password" -p 8883
 
 - Test with credentials and certificate. 
   ```
-  mosquitto_pub -h mosquitto-demo.cooldemo.org -t mytopic -m "hello again" -p 8883 --cafile /etc/ssl/certs/ca-bundle.crt -u "bob" -P "password"
-  mosquitto_sub -h mosquitto-demo.cooldemo.org -t mytopic -p 8883 --cafile /etc/ssl/certs/ca-bundle.crt -u "bob" -P "password"
+  mosquitto_pub -h mosquitto-demo.cooldemo.org -t kpnthings -m "hello again" -p 8883 --cafile /etc/ssl/certs/ca-bundle.crt -u "bob" -P "password"
+  mosquitto_sub -h mosquitto-demo.cooldemo.org -t kpnthings -p 8883 --cafile /etc/ssl/certs/ca-bundle.crt -u "bob" -P "password"
   ```
 
 
@@ -84,4 +84,17 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
 
 
 
-# 
+# Add a connection to KPN IoT hub. Like screenshot.
+  [img_1](./images/1.png)
+
+# Create OCI Streaming, Kafka Connect Configuration and get streaming credentials to connect, like:
+  [img_2](./images/2.png)
+
+# Set up Node-RED and create flow from Mosquitto to OCI Streaming
+  [img_2](./images/3.png)
+  [img_2](./images/4.png)
+  [img_2](./images/5.png)
+
+# Create OCI Data Flow
+
+
