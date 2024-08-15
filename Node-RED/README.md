@@ -65,3 +65,7 @@
 - run 'sudo npm install' in terminal. This will use the package.json
 - https://docs.oracle.com/en/database/oracle/oracle-database/21/lacli/install-instant-client-using-rpm.html
 
+## Copy file
+```
+scp -i private_key.pem C:\Users\Bob\Downloads\instantclient-basic-linux.x64-23.5.0.24.07.zip opc@150.136.150.209:/home/opc/node-red
+```
