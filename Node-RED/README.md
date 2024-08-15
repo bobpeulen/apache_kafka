@@ -22,9 +22,9 @@
   ```
   sudo yum install git
   sudo npm install -g grunt-cli
-  git clone https://github.com/node-red/node-red.git
+  sudo git clone https://github.com/node-red/node-red.git
   cd node-red
-  npm install
+  sudo npm install
   grunt build
   ```
 
