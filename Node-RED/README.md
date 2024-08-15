@@ -53,3 +53,15 @@
   sudo npm install -g --unsafe-perm node-red
   node-red bob hash-pw
 
+
+# Add PostgreSQL as target
+
+- Install 'node-red-contrib-postgresql' in the 'manage palette'
+
+# Add ADW as target
+- See https://blogs.oracle.com/developers/post/interacting-with-your-oracle-on-prem-and-autonomous-db-instances-from-node-red
+- Install 'node-red-contrib-oracledb-mod' in the node red UI
+- run 'npm install oracledb' in terminal
+- run 'sudo npm install' in terminal. This will use the package.json
+- 
+
