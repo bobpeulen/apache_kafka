@@ -30,7 +30,7 @@
 - Firewall and setenforce
   ```
   sudo firewall-cmd --permanent --add-port=1880/tcp
-  sudo systemctl start firewalld
+  sudo firewall-cmd --reload
   sudo setenforce 0
   ```
  
@@ -71,3 +71,17 @@ scp -i private_key.pem C:\Users\Bob\Downloads\instantclient-basic-linux.x64-23.5
 scp -i private_key.pem C:\Users\Bob\Downloads\Wallet_DZNPH3ELWCQZTK63.zip opc@150.136.150.209:/home/opc/node-red/oracle/instantclient_23_5/network/admin
 export LD_LIBRARY_PATH=/home/opc/node-red/oracle/instantclient_23_5:$LD_LIBRARY_PATH
 ```
+
+- Change env variables
+```
+export ORACLE_HOME=/home/opc/.node-red/oracle/instantclient_23_5
+export LD_LIBRARY_PATH=/home/opc/.node-red/oracle/instantclient_23_5
+export TNS_ADMIN=/home/opc/.node-red/oracle/instantclient_23_5/network/admin
+
+export TNS_ADMIN=/opt/oracle/your_config_dir
+node myapp.js
+
+```
+
+
+
