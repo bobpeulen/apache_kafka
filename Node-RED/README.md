@@ -7,6 +7,7 @@
 
 - First install Node.js. Run to list available modules for Node.js
   ```
+  cd .. ## make sure to be in home directory
   sudo dnf module list --all nodejs
   ```
 
