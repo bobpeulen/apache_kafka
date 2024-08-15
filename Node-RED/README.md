@@ -63,5 +63,5 @@
 - Install 'node-red-contrib-oracledb-mod' in the node red UI
 - run 'npm install oracledb' in terminal
 - run 'sudo npm install' in terminal. This will use the package.json
-- 
+- https://docs.oracle.com/en/database/oracle/oracle-database/21/lacli/install-instant-client-using-rpm.html
 
