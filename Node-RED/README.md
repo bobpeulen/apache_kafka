@@ -1,15 +1,24 @@
 # Run Node-RED on OCI
 
-- Create instance in public subnet, Oracle Linux image
+- Create instance in public subnet, Oracle Linux 8 image
 - Add 1880 as port in subnet security list
 - https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=805&p210_wec=&session=454482293547
+- https://yum.oracle.com/oracle-linux-nodejs.html#EnablingReposOL8
 
-- Run
+- First install Node.js. Run to list available modules for Node.js
+  ```
+  sudo dnf module list --all nodejs
+  ```
 
-  ```npm install n -g
-  sudo yum install -y oracle-nodejs-release-el7 oracle-release-el7
-  sudo yum update oracle-nodejs-release-el7
-  sudo yum install nodejs
+- Review latest version and change number in below. Run to install.
+  ```
+  sudo dnf module enable nodejs:20
+  sudo dnf module install nodejs
+  node -v ### to review version
+  ```
+
+- Next. Run to install Git, clone Node RED repo and install dependencies.
+  ```
   sudo yum install git
   sudo npm install -g grunt-cli
   git clone https://github.com/node-red/node-red.git
@@ -23,19 +32,14 @@
   sudo firewall-cmd --permanent --add-port=1880/tcp
   sudo systemctl start firewalld
   ```
-
-- Upgrade Node.js
-  ```
-  node -v  #reviews version
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash    #installs
-  nvm install 18
-  nvm use 18
-
-  
+ 
 - Start Node-RED. In the 'node-red' directory:
   ```
   npm start
 
   ```
+
+  - Open on "http://<public ip>:1880
+  http://150.136.150.209:1880
 
 
