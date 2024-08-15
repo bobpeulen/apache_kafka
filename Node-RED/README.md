@@ -68,4 +68,6 @@
 ## Copy file
 ```
 scp -i private_key.pem C:\Users\Bob\Downloads\instantclient-basic-linux.x64-23.5.0.24.07.zip opc@150.136.150.209:/home/opc/node-red
+scp -i private_key.pem C:\Users\Bob\Downloads\Wallet_DZNPH3ELWCQZTK63.zip opc@150.136.150.209:/home/opc/node-red/oracle/instantclient_23_5/network/admin
+export LD_LIBRARY_PATH=/home/opc/node-red/oracle/instantclient_23_5:$LD_LIBRARY_PATH
 ```
