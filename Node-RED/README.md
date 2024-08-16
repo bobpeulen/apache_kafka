@@ -73,7 +73,16 @@ INSERT INTO kpnthings_latlong (lat, long)
 VALUES ('123', '456');
 ```
 
+![image](https://github.com/user-attachments/assets/a2f996b2-c5a7-4f61-b36b-0fb8f954f681)
+![image](https://github.com/user-attachments/assets/50ccaac6-c682-45a7-8285-8c5f9d599e21)
 
+- Statement in Function. After Converter to JSON Object. msg.payload refers to that.
+```
+var lat = msg.payload[0].v
+var long = msg.payload[1].v
+msg.query = `INSERT INTO kpnthings_latlong (lat, long) VALUES (` + lat + `,` + long + `)`
+return msg;
+```
 
 
 
