@@ -58,6 +58,25 @@
 # Add PostgreSQL as target
 
 - Install 'node-red-contrib-postgresql' in the 'manage palette'
+- Install 'digitaloak/node-red-contrib-digitaloak-postgresql' 
+- Test
+
+```
+CREATE TABLE kpnthings_latlong (
+  lat VARCHAR(255),
+  long VARCHAR(255)
+);
+```
+
+```
+INSERT INTO kpnthings_latlong (lat, long)
+VALUES ('123', '456');
+```
+
+
+
+
+
 
 # Add ADW as target
 - See https://blogs.oracle.com/developers/post/interacting-with-your-oracle-on-prem-and-autonomous-db-instances-from-node-red
