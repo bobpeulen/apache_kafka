@@ -57,9 +57,8 @@
 
 # Add PostgreSQL as target
 
-- Install 'node-red-contrib-postgresql' in the 'manage palette'
-- Install 'digitaloak/node-red-contrib-digitaloak-postgresql' 
-- Test
+- Install 'digitaloak/node-red-contrib-digitaloak-postgresql' in Node-RED using manage palette
+- Create table in postgresql db.
 
 ```
 CREATE TABLE kpnthings_latlong (
@@ -71,7 +70,7 @@ CREATE TABLE kpnthings_latlong (
   long  FLOAT
 );
 ```
-- Full function 
+- Full function. After Converter to JSON Object. msg.payload refers to that.
 ```
 var battery = msg.payload[0].vs
 var acc_x = msg.payload[1].v
@@ -88,25 +87,19 @@ return msg;
 ![image](https://github.com/user-attachments/assets/568e23b3-0c4f-4fdf-9593-2969bd290f71)
 
 
-- Statement in Function. After Converter to JSON Object. msg.payload refers to that.
-```
-var lat = msg.payload[0].v
-var long = msg.payload[1].v
-msg.query = `INSERT INTO kpnthings_latlong (lat, long) VALUES (` + lat + `,` + long + `)`
-return msg;
-```
 
 
 
+# TO DO
 
-# Add ADW as target
+- Add ADW as target
 - See https://blogs.oracle.com/developers/post/interacting-with-your-oracle-on-prem-and-autonomous-db-instances-from-node-red
 - Install 'node-red-contrib-oracledb-mod' in the node red UI
 - run 'npm install oracledb' in terminal
 - run 'sudo npm install' in terminal. This will use the package.json
 - https://docs.oracle.com/en/database/oracle/oracle-database/21/lacli/install-instant-client-using-rpm.html
 
-## Copy file
+- Copy file
 ```
 scp -i private_key.pem C:\Users\Bob\Downloads\instantclient-basic-linux.x64-23.5.0.24.07.zip opc@150.136.150.209:/home/opc/node-red
 scp -i private_key.pem C:\Users\Bob\Downloads\Wallet_DZNPH3ELWCQZTK63.zip opc@150.136.150.209:/home/opc/node-red/oracle/instantclient_23_5/network/admin
