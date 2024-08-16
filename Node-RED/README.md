@@ -63,18 +63,30 @@
 
 ```
 CREATE TABLE kpnthings_latlong (
-  lat VARCHAR(255),
-  long VARCHAR(255)
+  battery VARCHAR(255),
+  acc_x  FLOAT,
+  acc_y  FLOAT,
+  acc_z  FLOAT,
+  lat  FLOAT,
+  long  FLOAT
 );
 ```
-
+- Full function 
 ```
-INSERT INTO kpnthings_latlong (lat, long)
-VALUES ('123', '456');
+var battery = msg.payload[0].vs
+var acc_x = msg.payload[1].v
+var acc_y = msg.payload[2].v
+var acc_z = msg.payload[3].v
+var lat = msg.payload[4].v
+var long = msg.payload[5].v
+msg.query = `INSERT INTO kpnthings_latlong (battery, acc_x, acc_y, acc_z, lat, long) VALUES (` + battery + `,` + acc_x + `,` + acc_y + `,` + acc_z + `,` + lat + `,` + long + `)` 
+return msg;
 ```
 
 ![image](https://github.com/user-attachments/assets/a2f996b2-c5a7-4f61-b36b-0fb8f954f681)
 ![image](https://github.com/user-attachments/assets/50ccaac6-c682-45a7-8285-8c5f9d599e21)
+![image](https://github.com/user-attachments/assets/568e23b3-0c4f-4fdf-9593-2969bd290f71)
+
 
 - Statement in Function. After Converter to JSON Object. msg.payload refers to that.
 ```
