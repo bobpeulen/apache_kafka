@@ -39,18 +39,21 @@
 
   ```
 
-  - Open on "http://<public ip>:1880
+- Open on "http://<public ip>:1880
     Eg. http://150.136.150.209:1880/
  
-  - Start on boot
-    ```
-    sudo npm install -g pm2
-    pm2 start /home/opc/node-red -- -v
-    ```
-- TO DO. Add credentials to (hidden) settings file. The file is located at "/home/opc/.node-red/settings.js". First will prompt for pw.
+- Start on boot
+  ```
+  sudo npm install -g pm2
+  pm2 start /home/opc/node-red -- -v
+  ```
+-  Add credentials to settings file. The file is located at "/home/opc/.node-red/settings.js". First will prompt for pw.
   ```
   sudo npm install -g --unsafe-perm node-red
   node-red bob hash-pw
+  ```
+
+- Add the newly created password to the settings file.
 
 
 # Add PostgreSQL as target
