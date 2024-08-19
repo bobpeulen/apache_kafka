@@ -5,7 +5,7 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
 - Follow these steps to update a file for use of yum. https://dev.to/franzwong/fix-cannot-find-a-valid-baseurl-for-repo-in-centos-1h07
 - Based on the public IP of the compute, create a public DNS. This is needed to create CA certificates.
 
-- SSH into compute. Run:
+- SSH into compute. Install and enable mosquitto:
 
   ```
   sudo yum -y install epel-release
@@ -14,7 +14,7 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
   sudo systemctl enable mosquitto
   ```
 
-- Firewall settings
+- Firewall settings:
   ```
   sudo firewall-cmd --permanent --add-service=http
   sudo firewall-cmd --permanent --add-port=1883/tcp
@@ -22,13 +22,13 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
   sudo firewall-cmd --reload
   ```
 
-- Test. Open two terminals.
+- Test the Mosquitto broker. Open two terminals and run in the different terminals:
   ```
-  mosquitto_sub -h localhost -t test
-  mosquitto_pub -h localhost -t test -m "hello world"
+  mosquitto_sub -h localhost -t test_topic
+  mosquitto_pub -h localhost -t test_topic -m "hello world"
   ```
 
-- PW file. Username is in cmnd, password will be prompted and added.
+- Create a password file. Run the below. In the example, 'bob' is the username. Password will be prompted when you run.
   ```
   sudo mosquitto_passwd -c /etc/mosquitto/passwd bob
   ```
@@ -40,7 +40,7 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
   ```
 
 
-- Config file. Remove first, create new
+- Change the Mosquitto config settings.
   ```
   sudo rm /etc/mosquitto/mosquitto.conf
   sudo nano /etc/mosquitto/mosquitto.conf
