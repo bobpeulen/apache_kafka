@@ -3,9 +3,7 @@ The below creates a Mosquitto instance on OCI and adds configuration to handle t
 
 - Create instance with CentOS 7 image
 - Follow these steps to update a file for use of yum. https://dev.to/franzwong/fix-cannot-find-a-valid-baseurl-for-repo-in-centos-1h07
-- General. https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-centos-7
-
-- Based on the public IP of the compute, create a public DNS (not Oracle). This is needed to create CA certificates.
+- Based on the public IP of the compute, create a public DNS. This is needed to create CA certificates.
 
 - SSH into compute. Run:
 
