@@ -2,8 +2,6 @@
 
 - Create instance in public subnet, Oracle Linux 8 image
 - Add 1880 as port in subnet security list
-- https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=805&p210_wec=&session=454482293547
-- https://yum.oracle.com/oracle-linux-nodejs.html#EnablingReposOL8
 
 - First install Node.js. Run to list available modules for Node.js
   ```
