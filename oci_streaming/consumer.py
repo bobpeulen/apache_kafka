@@ -29,15 +29,12 @@ auth_token = args.auth_token
 
 
 def main():
-  consumer = KafkaConsumer(
-    stream_name,
-    bootstrap_servers = f'cell-1.streaming.{region}.oci.oraclecloud.com:9092', 
+  consumer = KafkaConsumer(stream_name, bootstrap_servers = f'cell-1.streaming.{region}.oci.oraclecloud.com:9092', 
                          security_protocol = 'SASL_SSL', sasl_mechanism = 'PLAIN',
                          sasl_plain_username = f'{tenancy_name}/{user_name}/{stream_pool_ocid}',
-                         sasl_plain_password = auth_token
-)
+                         sasl_plain_password = auth_token)
 
-for message in consumer:
+  for message in consumer:
     print(f"{message.key}: {message.value}")
 
 
