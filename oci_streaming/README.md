@@ -19,3 +19,14 @@ python apache_kafka/oci_streaming/producer.py  \
 -stream_pool_ocid 'ocid1.streampool.oc1.eu-frankfurt-1.amaaaaaaeicj2tiacazj6xzvn7rkfdyci6w2io634erapt7ctpxtqxauvocmea' \
 -auth_token 'ADD YOUR TOKEN HERE'
 ```
+
+4. Run the consumer.
+   ```
+    python apache_kafka/oci_streaming/consumer.py  \
+    -tenancy_name 'oraemeadatamgmt' \
+    -region 'eu-frankfurt-1' \
+    -user_name 'OracleIdentityCloudService/bob.peulen@oracle.com' \
+    -stream_name 'OpenSourceData_stream_1' \
+    -stream_pool_ocid 'ocid1.streampool.oc1.eu-frankfurt-1.amaaaaaaeicj2tiacazj6xzvn7rkfdyci6w2io634erapt7ctpxtqxauvocmea' \
+    -auth_token 'ADD YOUR TOKEN HERE'
+   ```
