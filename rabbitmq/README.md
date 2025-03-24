@@ -5,7 +5,7 @@
 see: https://www.svix.com/resources/guides/rabbitmq-docker-setup-guide/
 
   ```
-  sudo yum install docker-engine docker-cli
+  sudo yum install docker-engine docker-cli docker
   sudo systemctl enable --now docker
   ```
 
