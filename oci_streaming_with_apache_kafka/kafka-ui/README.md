@@ -37,3 +37,24 @@
 
 
 <img width="996" height="836" alt="image" src="https://github.com/user-attachments/assets/c15dcb0e-1b76-48ba-95c1-38bc26553234" />
+
+## Test Schema registry
+
+```
+version: '1'
+
+services:
+  kafka-schema-registry:
+    image: confluentinc/cp-schema-registry
+    hostname: kafka-schema-registry
+    container_name: kafka-schema-registry
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: kafka-schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'PLAINTEXT://kafka:29092'
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+```
+
+
+
