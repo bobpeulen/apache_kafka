@@ -45,42 +45,19 @@
   ```
   
 ```
-sudo docker run -p 8081:8081 -d  \
-  --net=host \
-  --name=schema-registry \
-  -e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=SASL_SSL://bootstrap-clstr-u8udqubajizcuv58.kafka.eu-frankfurt-1.oci.oraclecloud.com:9092 \
-  -e SCHEMA_REGISTRY_HOST_NAME=localhost \
-  -e SCHEMA_REGISTRY_LISTENERS=http://localhost:8081 \
-  -e SCHEMA_REGISTRY_DEBUG=true \
-  confluentinc/cp-schema-registry:8.0.0
+sudo docker run -it -p 8081:8081 \
+-e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS="SASL_SSL://bootstrap-clstr-xxxx.kafka.eu-frankfurt-1.oci.oraclecloud.com:9092" \
+-e SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL=SASL_SSL \
+-e SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM=SCRAM-SHA-512 \
+-e SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG='org.apache.kafka.common.security.scram.ScramLoginModule required username="super-user-x" password="x";' \
+-e SCHEMA_REGISTRY_HOST_NAME="0.0.0.0" \
+-e SCHEMA_REGISTRY_LISTENERS="http://0.0.0.0:8081" \
+confluentinc/cp-schema-registry:8.0.0
 ```
 
 
 
 
 
-- Create a schema-registry-compose.yaml file with below and run:
-  ```
-  sudo docker compose -f schema-registry-compose.yaml up -d
-  ```
-- .yaml file:
-  
-  ```
-  version: '1'
-  
-  services:
-    kafka-schema-registry:
-      image: confluentinc/cp-schema-registry
-      hostname: kafka-schema-registry
-      container_name: kafka-schema-registry
-      ports:
-        - "8081:8081"
-      environment:
-        SCHEMA_REGISTRY_HOST_NAME: kafka-schema-registry
-        SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'PLAINTEXT://kafka:29092'
-        SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-  ```
-
-<img width="644" height="383" alt="image" src="https://github.com/user-attachments/assets/e1f1020c-e110-4efd-a4f4-3386cae1c380" />
 
 
