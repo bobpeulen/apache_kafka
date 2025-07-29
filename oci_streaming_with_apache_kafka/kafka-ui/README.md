@@ -39,9 +39,13 @@
 <img width="996" height="836" alt="image" src="https://github.com/user-attachments/assets/c15dcb0e-1b76-48ba-95c1-38bc26553234" />
 
 ## Test Schema registry
-
+- Open port (not sure is needed)
+  ```
+  sudo firewall-cmd --permanent --add-port=8081/tcp
+  ```
+  
 ```
-sudo docker run -d \
+sudo docker run -p 8081:8081 -d  \
   --net=host \
   --name=schema-registry \
   -e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=SASL_SSL://bootstrap-clstr-u8udqubajizcuv58.kafka.eu-frankfurt-1.oci.oraclecloud.com:9092 \
@@ -54,10 +58,7 @@ sudo docker run -d \
 
 
 
-- Open port (not sure is needed)
-  ```
-  sudo firewall-cmd --permanent --add-port=8081/tcp
-  ```
+
 - Create a schema-registry-compose.yaml file with below and run:
   ```
   sudo docker compose -f schema-registry-compose.yaml up -d
