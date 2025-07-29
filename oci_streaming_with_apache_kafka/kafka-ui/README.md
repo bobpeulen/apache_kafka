@@ -20,11 +20,11 @@
 
 ## Open Port and Run Kafka UI
 
-```
-sudo firewall-cmd --permanent --add-port=8080/tcp
-sudo firewall-cmd --reload 
-sudo docker run -it -p 8080:8080 -e DYNAMIC_CONFIG_ENABLED=true provectuslabs/kafka-ui
-```
+  ```
+  sudo firewall-cmd --permanent --add-port=8080/tcp
+  sudo firewall-cmd --reload 
+  sudo docker run -it -p 8080:8080 -e DYNAMIC_CONFIG_ENABLED=true provectuslabs/kafka-ui
+  ```
 
 ## Open Kafka UI
 - Open Kafka UI on http://[Public URL]:8080
