@@ -28,3 +28,12 @@ sudo docker run -it -p 8080:8080 -e DYNAMIC_CONFIG_ENABLED=true provectuslabs/ka
 
 ## Open Kafka UI
 - Open Kafka UI on http://[Public URL]:8080
+- Add your SASL-SCRAM Bootstrap URL as Bootstrap server
+- Use SASL/SCARM-512 and SASL_SSL as protocol
+- Click on "Secured with Auth?" and add your username and password stored in OCI Vault
+
+- Optionally, add Schema registry, etc.
+- Click validate and submit.
+
+
+<img width="996" height="836" alt="image" src="https://github.com/user-attachments/assets/c15dcb0e-1b76-48ba-95c1-38bc26553234" />
