@@ -40,6 +40,20 @@
 
 ## Test Schema registry
 
+```
+sudo docker run -d \
+  --net=host \
+  --name=schema-registry \
+  -e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=SASL_SSL://bootstrap-clstr-u8udqubajizcuv58.kafka.eu-frankfurt-1.oci.oraclecloud.com:9092 \
+  -e SCHEMA_REGISTRY_HOST_NAME=localhost \
+  -e SCHEMA_REGISTRY_LISTENERS=http://localhost:8081 \
+  -e SCHEMA_REGISTRY_DEBUG=true \
+  confluentinc/cp-schema-registry:8.0.0
+```
+
+
+
+
 - Open port (not sure is needed)
   ```
   sudo firewall-cmd --permanent --add-port=8081/tcp
