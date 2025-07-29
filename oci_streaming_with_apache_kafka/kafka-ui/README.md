@@ -46,12 +46,12 @@
   
 ```
 sudo docker run -it -p 8081:8081 \
--e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS="SASL_SSL://bootstrap-clstr-xxxx.kafka.eu-frankfurt-1.oci.oraclecloud.com:9092" \
+-e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS="SASL_SSL://bootstrap-clstr-x.kafka.eu-frankfurt-1.oci.oraclecloud.com:9092" \
 -e SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL=SASL_SSL \
 -e SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM=SCRAM-SHA-512 \
--e SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG='org.apache.kafka.common.security.scram.ScramLoginModule required username="super-user-x" password="x";' \
--e SCHEMA_REGISTRY_HOST_NAME="0.0.0.0" \
--e SCHEMA_REGISTRY_LISTENERS="http://0.0.0.0:8081" \
+-e SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG='org.apache.kafka.common.security.scram.ScramLoginModule required username="super-user-x" password="xxx";' \
+-e SCHEMA_REGISTRY_HOST_NAME=localhost \
+-e SCHEMA_REGISTRY_LISTENERS=http://localhost:8081 \
 confluentinc/cp-schema-registry:8.0.0
 ```
 
