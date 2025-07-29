@@ -55,7 +55,8 @@ sudo docker run -it -p 8081:8081 \
 confluentinc/cp-schema-registry:8.0.0
 ```
 
-
+https://docs.confluent.io/platform/current/installation/docker/config-reference.html
+https://github.com/Zenika/kafka-monitoring/blob/main/docker-compose.yaml
 
 
 
