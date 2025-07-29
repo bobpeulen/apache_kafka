@@ -30,7 +30,7 @@
 - Open Kafka UI on http://[Public URL]:8080
 - Add your SASL-SCRAM Bootstrap URL as Bootstrap server
 - Use SASL/SCARM-512 and SASL_SSL as protocol
-- Click on "Secured with Auth?" and add your username and password stored in OCI Vault
+- Click on "Secured with Auth?" and add your username and password stored in OCI Vault (Secret content)
 
 - Optionally, add Schema registry, etc.
 - Click validate and submit.
