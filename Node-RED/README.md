@@ -91,32 +91,7 @@ return msg;
 
 
 
-# TO DO
 
-- Add ADW as target
-- See https://blogs.oracle.com/developers/post/interacting-with-your-oracle-on-prem-and-autonomous-db-instances-from-node-red
-- Install 'node-red-contrib-oracledb-mod' in the node red UI
-- run 'npm install oracledb' in terminal
-- run 'sudo npm install' in terminal. This will use the package.json
-- https://docs.oracle.com/en/database/oracle/oracle-database/21/lacli/install-instant-client-using-rpm.html
-
-- Copy file
-```
-scp -i private_key.pem C:\Users\Bob\Downloads\instantclient-basic-linux.x64-23.5.0.24.07.zip opc@150.136.150.209:/home/opc/node-red
-scp -i private_key.pem C:\Users\Bob\Downloads\Wallet_DZNPH3ELWCQZTK63.zip opc@150.136.150.209:/home/opc/node-red/oracle/instantclient_23_5/network/admin
-export LD_LIBRARY_PATH=/home/opc/node-red/oracle/instantclient_23_5:$LD_LIBRARY_PATH
-```
-
-- Change env variables
-```
-export ORACLE_HOME=/home/opc/.node-red/oracle/instantclient_23_5
-export LD_LIBRARY_PATH=/home/opc/.node-red/oracle/instantclient_23_5
-export TNS_ADMIN=/home/opc/.node-red/oracle/instantclient_23_5/network/admin
-
-export TNS_ADMIN=/opt/oracle/your_config_dir
-node myapp.js
-
-```
 
 
 
