@@ -66,24 +66,6 @@ curl -i -u guest:guest -H "content-type:application/json" -XPUT http://150.136.1
 ```
 curl -i -H "Content-Type:application/json" -X POST -u guest:guest http://150.136.15.87:15672/api/exchanges/foo/amq.direct/publish -d'{"properties":{},"routing_key":"testqueue","payload":"my body","payload_encoding":"string"}'
 ```	
-[]
-[]
-[]
-[]
-[]
-
-curl -u guest:guest -i -H "Content-Type:application/json" -X PUT http://150.136.15.87:15672/api///exchanges/kpnthingsexchange/publish -d'{"properties":{},"routing_key":"kpnthings","payload":"my body","payload_encoding":"string"}'
-
-
-curl -s -u guest:guest -H "Content-Type:application/json" -X POST -d'{"vhost": "/",  "name": "amq.direct",   "properties": { "delivery_mode": 2, "headers": {}}, "routing_key": "testqueue", "delivery_mode": "1", "payload":"{'example:'payloadx'}", "headers": {}, "props": {}, "payload_encoding": "string"}' http://150.136.15.87:15672/api/exchanges/foo/amq.direct/publish
-
-
-
-
-
-
-
--------- END
 
 
 ```
@@ -92,7 +74,7 @@ sudo docker run -d \
 --hostname rabbitmq-demo.bobpeulen.com \
 -p 8080:15672 -p 5672:5672 \
 -e RABBITMQ_DEFAULT_USER=bobpeulen \
--e RABBITMQ_DEFAULT_PASS=Blabla1991!! \
+-e RABBITMQ_DEFAULT_PASS=[password] \
 -v /home/opc/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins \
 -v /home/opc/rabbitmq/:/var/lib/rabbitmq \
 --name rabbitmq \
@@ -100,25 +82,11 @@ rabbitmq:3-management
 ```
 
 
-
-
-
-
-xxxx
-
-
-
-
-
-
-
-
 3. Change the user Docker will use
   ```
   sudo service docker restart
   sudo usermod -a -G docker opc
   ```
-
 
 
 
@@ -147,7 +115,7 @@ sudo docker run -d \
 --hostname rabbitmq-demo.bobpeulen.com \
 -p 8080:15672 -p 5672:5672 \
 -e RABBITMQ_DEFAULT_USER=bobpeulen \
--e RABBITMQ_DEFAULT_PASS=Blabla1991!! \
+-e RABBITMQ_DEFAULT_PASS=[password] \
 -v /home/opc/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins \
 -v /home/opc/rabbitmq/:/var/lib/rabbitmq \
 --name rabbitmq \
