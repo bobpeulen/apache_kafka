@@ -38,25 +38,6 @@
 
 <img width="996" height="836" alt="image" src="https://github.com/user-attachments/assets/c15dcb0e-1b76-48ba-95c1-38bc26553234" />
 
-## Test Schema registry
-- Open port (not sure is needed)
-  ```
-  sudo firewall-cmd --permanent --add-port=8081/tcp
-  ```
-  
-```
-sudo docker run -it -p 8081:8081 \
--e SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS="SASL_SSL://bootstrap-clstr-x.kafka.eu-frankfurt-1.oci.oraclecloud.com:9092" \
--e SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL=SASL_SSL \
--e SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM=SCRAM-SHA-512 \
--e SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG='org.apache.kafka.common.security.scram.ScramLoginModule required username="super-user-x" password="xxx";' \
--e SCHEMA_REGISTRY_HOST_NAME=localhost \
--e SCHEMA_REGISTRY_LISTENERS=http://localhost:8081 \
-confluentinc/cp-schema-registry:8.0.0
-```
-
-https://docs.confluent.io/platform/current/installation/docker/config-reference.html
-https://github.com/Zenika/kafka-monitoring/blob/main/docker-compose.yaml
 
 
 
