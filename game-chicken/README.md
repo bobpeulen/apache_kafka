@@ -12,6 +12,9 @@ https://github.com/airscholar/chicken-invaders-kafka/tree/main
   sudo dnf module enable nodejs:20
   sudo dnf update nodejs
   ```
+- Check version
+  ```node -v```
+
 # Install KafkaUI
 
 
